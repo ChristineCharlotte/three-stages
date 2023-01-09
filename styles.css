@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+/* body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: black;
+  background-color: white;
+} */
+
+/* 主容器 */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* 盒子容器 */
+.box {
+  flex: 1;
+  position: relative;
+  transition: 0.5s ease;
+}
+
+.box-yellow {
+  background: linear-gradient(135deg, #f8e986, #f8d800);
+}
+
+.box-blue {
+  background: linear-gradient(135deg, #abdcff, #0396ff);
+}
+
+.box-purple {
+  background: linear-gradient(135deg, #9489f5, #5746f5);
+}
+
+/* 鼠标悬浮、触摸或获得焦点时，扩大盒子的大小 */
+.box:hover,
+.box:active,
+.box:focus {
+  flex: 3;
+}
+
+/* 鼠标悬浮、触摸，或获得焦点时，显示盒子内的标题，并调整样式 */
+.box:hover .title,
+.box:active .title,
+.box:focus .title {
+  transform: translate(-50%, -50%) rotate(0);
+  color: #fff;
+  font-size: 6rem;
+  letter-spacing: 20px;
+}
+
+/* 加载自定义字体 */
+@import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap');
+
+/* 盒子内的标题 */
+.box .title {
+  font-family: 'Bigelow Rules', cursive;
+  font-size: 5rem;
+  letter-spacing: 5rem;
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s ease;
+}
+
+/* 屏幕宽度大于 1000px 时，调整样式 */
+@media screen and (min-width: 1000px) {
+  .box.title {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .box:hover .title,
+  .box:active .title,
+  .box:focus .title {
+    transform: translate(-50%, -50%) scale(1.25);
+  }
+
+  .wrapper {
+    flex-direction: row;
+  }
+}
